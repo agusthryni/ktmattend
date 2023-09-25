@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567994754764",
+    "project_id": "ktmattend-8d545",
+    "storage_bucket": "ktmattend-8d545.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567994754764:android:6094a0fb2a4207d9a68469",
+        "android_client_info": {
+          "package_name": "com.example.ktmattend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567994754764-08qjiei2jjj4ct7nj24ok591e34f4e1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe6gCspVxduH0zR8DdkS5lh4CJ07uKvGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567994754764-08qjiei2jjj4ct7nj24ok591e34f4e1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
