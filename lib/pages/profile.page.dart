@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Profile"),
-          backgroundColor: Colors.grey[900],
+          backgroundColor: Colors.green[900],
         ),
         body: ListView(
           children: [
@@ -34,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Text(
               currentUser.email!,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey[700]),
+              style: TextStyle(color: Colors.green[700]),
             ),
           ],
         ));

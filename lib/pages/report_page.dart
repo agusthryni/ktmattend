@@ -5,23 +5,28 @@ import '../components/drawer.dart';
 import '../components/navbar.dart';
 import 'add_card_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ReportPage extends StatefulWidget {
+  const ReportPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ReportPage> createState() => _ReportPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ReportPageState extends State<ReportPage> {
+  // user
   final user = FirebaseAuth.instance.currentUser!;
-  DateTime selectedDate = DateTime.now();
 
+  // sign user out method
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
 
+  // navigate to add card page
   void goToAddCardPage() {
+    // pop menu drawer
     Navigator.pop(context);
+
+    // go to add card page
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -30,8 +35,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // navigate to profile page
   void goToProfilePage() {
+    // pop menu drawer
     Navigator.pop(context);
+
+    // go to profile page
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -46,9 +55,10 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("DASHBOARD"),
-        backgroundColor: const Color.fromARGB(232, 131, 176, 199),
+        title: const Text("ICheck"),
+        backgroundColor: Colors.green,
         actions: [
+          // add card scan button
           IconButton(
             onPressed: goToAddCardPage,
             icon: const Icon(Icons.add),
@@ -61,56 +71,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          // User Account Card
+          // Absensi Masuk
           Card(
             margin: const EdgeInsets.all(16.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(user.photoURL ?? ''),
-              ),
-              title: Text(user.displayName ?? 'User'),
-              subtitle: Text(user.email ?? ''),
-            ),
-          ),
-
-          // Date Selection Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_left),
-                onPressed: () {
-                  setState(() {
-                    selectedDate =
-                        selectedDate.subtract(const Duration(days: 1));
-                  });
-                },
-              ),
-              Text(
-                "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}",
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              IconButton(
-                icon: const Icon(Icons.arrow_right),
-                onPressed: () {
-                  setState(() {
-                    selectedDate = selectedDate.add(const Duration(days: 1));
-                  });
-                },
-              ),
-            ],
-          ),
-
-          // Absensi Masuk Card
-          Card(
-            margin: const EdgeInsets.all(16.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -138,6 +101,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   const SizedBox(height: 10),
+                  // Tambahkan tombol Absensi Masuk di sini
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -149,9 +113,6 @@ class _HomePageState extends State<HomePage> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
                     ),
                     child: const Text('Presensi'),
                   ),
@@ -160,12 +121,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          // Deep Learning Card
           Card(
             margin: const EdgeInsets.all(16.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -193,6 +150,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   const SizedBox(height: 10),
+                  // Tambahkan tombol Absensi Masuk di sini
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -204,25 +162,23 @@ class _HomePageState extends State<HomePage> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
                     ),
                     child: const Text('Presensi'),
                   ),
                 ],
               ),
             ),
-          ),
+          ), // Tambahkan widget lainnya di sini
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 0,
+        selectedIndex:
+            0, // Sesuaikan dengan indeks Beranda pada bottom navigation
         onItemTapped: (index) {
           if (index == 1) {
-            Navigator.pushNamed(context, '/add');
+            Navigator.pushNamed(context, '/home'); // Pencarian
           } else if (index == 2) {
-            Navigator.pushNamed(context, '/report');
+            Navigator.pushNamed(context, '/add'); // AI
           }
         },
       ),

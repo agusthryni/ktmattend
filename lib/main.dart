@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ktmattend/pages/auth_page.dart';
+import 'package:ktmattend/pages/home_page.dart';
+import 'package:ktmattend/pages/add_page.dart';
+import 'package:ktmattend/pages/report_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,9 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home: const AuthPage(),
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/add': (context) => const AddPage(),
+        '/report': (context) =>
+            const ReportPage(), // Add other routes as needed
+      },
     );
   }
 }

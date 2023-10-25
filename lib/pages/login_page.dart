@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.grey[700],
           title: Center(
             child: Text(
               message,
@@ -73,16 +73,17 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // logo
-                const Icon(
-                  Icons.lock,
-                  size: 80,
+                Image.asset(
+                  'assets/icon/logo.png', // Sesuaikan dengan path ke gambar logo Anda
+                  width: 150,
+                  height: 150,
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
-                // welcome back, you've been missed!
+                // Login to your account
                 Text(
-                  'Welcome back you\'ve been missed!',
+                  'Login to your account',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 16,
@@ -129,6 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                 MyButton(
                   text: "Sign In",
                   onTap: signUserIn,
+                  onPressed: () {},
                 ),
 
                 const SizedBox(height: 20),
@@ -190,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Text(
                         'Register now',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromARGB(1000, 78, 125, 150),
                           fontWeight: FontWeight.bold,
                         ),
                       ),

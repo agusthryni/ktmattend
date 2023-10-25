@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: const Color.fromARGB(1000, 78, 125, 150),
           title: Center(
             child: Text(
               message,
@@ -81,16 +81,17 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // logo
-                const Icon(
-                  Icons.lock,
-                  size: 80,
+                Image.asset(
+                  'assets/icon/logo.png', // Sesuaikan dengan path ke gambar logo Anda
+                  width: 150,
+                  height: 150,
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
                 // let\'s create an account for you!
                 Text(
-                  'Let\'s create an account for you!',
+                  'Create your account',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 16,
@@ -130,6 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 MyButton(
                   text: "Sign Up",
                   onTap: signUserUp,
+                  onPressed: () {},
                 ),
 
                 const SizedBox(height: 20),
@@ -191,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: const Text(
                         'Login now',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromARGB(1000, 78, 125, 150),
                           fontWeight: FontWeight.bold,
                         ),
                       ),

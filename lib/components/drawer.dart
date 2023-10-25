@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'my_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -14,7 +13,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[100],
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Column(
@@ -23,7 +22,7 @@ class MyDrawer extends StatelessWidget {
             const DrawerHeader(
               child: Icon(
                 Icons.person,
-                color: Colors.white,
+                color: Colors.green,
                 size: 64,
               ),
             ),
@@ -32,6 +31,12 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.dashboard,
               text: 'D A S H B O A R D',
               onTap: () => Navigator.pop(context),
+            ),
+            // report list title
+            MyListTile(
+              icon: Icons.list,
+              text: 'R E P O R T',
+              onTap: onProfileTap,
             ),
             // profile list title
             MyListTile(
